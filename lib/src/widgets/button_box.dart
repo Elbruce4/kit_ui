@@ -20,13 +20,19 @@ class ButtonBox extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 200,
-        height: 150,
+        height: 50,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: disabled ? kcMediumGreyColor : kSecondaryPColor
         ),
-        child: Text(title),
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
