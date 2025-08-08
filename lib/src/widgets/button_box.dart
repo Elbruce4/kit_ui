@@ -24,7 +24,7 @@ class ButtonBox extends StatelessWidget {
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: disabled ? kcMediumGreyColor : kPrimaryColor
+          color: disabled ? kcMediumGreyColor : kSecondaryPColor
         ),
         child: Text(title),
       ),
