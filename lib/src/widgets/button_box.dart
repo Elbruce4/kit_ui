@@ -3,7 +3,7 @@ import 'package:kit_ui/src/shared/colors.dart';
 
 class ButtonBox extends StatelessWidget {
   final String title;
-  final Function? onTap;
+  final Function()? onTap;
   final bool disabled;
 
   ButtonBox({
@@ -17,8 +17,9 @@ class ButtonBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Container(
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: disabled ? kcMediumGreyColor : kPrimaryColor
