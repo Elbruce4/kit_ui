@@ -6,7 +6,7 @@ class ButtonBox extends StatelessWidget {
   final Function()? onTap;
   final bool disabled;
 
-  ButtonBox({
+  const ButtonBox({
     super.key,
     required this.title,
     this.onTap,
@@ -26,12 +26,12 @@ class ButtonBox extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(12)),
           color: disabled
               ? kcMediumGreyColor.withValues(alpha: 0.6)
-              : kPrimaryColor,
+              : kSecondaryPColor,
           boxShadow: disabled
               ? []
               : [
                   BoxShadow(
-                    color: kPrimaryColor.withValues(alpha: 0.3),
+                    color: kSecondaryPColor.withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: Offset(0, 4),
                   ),
@@ -40,8 +40,8 @@ class ButtonBox extends StatelessWidget {
               ? null
               : LinearGradient(
                   colors: [
-                    kPrimaryColor.withValues(alpha: 0.95),
-                    kPrimaryColor.withValues(alpha: 0.75),
+                    kSecondaryPColor.withValues(alpha: 0.95),
+                    kSecondaryPColor.withValues(alpha: 0.75),
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
