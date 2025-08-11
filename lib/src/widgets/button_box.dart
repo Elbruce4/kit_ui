@@ -10,28 +10,56 @@ class ButtonBox extends StatelessWidget {
     super.key,
     required this.title,
     this.onTap,
-    this.disabled = false
+    this.disabled = false,
   });
-
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
+      onTap: disabled ? null : onTap,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 200),
         width: 200,
         height: 50,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: disabled ? kcMediumGreyColor : kSecondaryPColor
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          color: disabled
+              ? kcMediumGreyColor.withValues(alpha: 0.6)
+              : kPrimaryColor,
+          boxShadow: disabled
+              ? []
+              : [
+                  BoxShadow(
+                    color: kPrimaryColor.withValues(alpha: 0.3),
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+          gradient: disabled
+              ? null
+              : LinearGradient(
+                  colors: [
+                    kPrimaryColor.withValues(alpha: 0.95),
+                    kPrimaryColor.withValues(alpha: 0.75),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
         ),
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 16
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: disabled
+                  ? Colors.black.withValues(alpha: 0.54)
+                  : Colors.white,
+              letterSpacing: 0.5,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
       ),
     );
